@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="123dp"
+        android:textStyle="bold"
+        android:textColor="#92E0FF"
+        android:textSize="36sp"
+        android:text="哆哆在线启蒙教育机器人"/>
+
+    <com.example.administrator.productcenter.View.HorizontalViewPager
+        android:id="@+id/viewpager_robot"
+        android:layout_width="match_parent"
+        android:layout_height="333dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="306dp"
+        android:layout_marginRight="10dp"
+        />
+
+    <ImageView
+        android:layout_width="438dp"
+        android:layout_height="262dp"
+        android:src="@drawable/teach_intro"
+        android:layout_marginTop="202dp"
+        android:layout_marginLeft="828dp"/>
+
+</FrameLayout>

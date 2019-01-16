@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ProductActivity"
+    android:background="@drawable/bg">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/holder"
+        android:layout_marginLeft="272dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="268dp"
+        android:layout_marginBottom="50dp">
+
+        <com.example.administrator.productcenter.View.VerticalViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </com.example.administrator.productcenter.View.VerticalViewPager>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textColor="#D4FFF9"
+            android:text=" 产品中心"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#00FFBB"
+            android:text="PRODUCT"
+            android:layout_marginLeft="143dp"
+            android:layout_marginTop="39dp"/>
+
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="14dp">
+
+        <ImageView
+            android:layout_width="191dp"
+            android:layout_height="43dp"
+            android:src="@drawable/logo_zb"
+            />
+
+        <TextClock
+            android:id="@+id/text_clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="41dp"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:layout_gravity="center_vertical"
+            />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/button_left"
+        android:layout_width="144dp"
+        android:layout_height="286dp"
+        android:layout_gravity="left|center"
+        android:src="@drawable/btn_left"/>
+
+    <ImageView
+        android:id="@+id/button_right"
+        android:layout_width="144dp"
+        android:layout_height="286dp"
+        android:layout_gravity="right|center"
+        android:src="@drawable/btn_right"/>
+
+    <ImageView
+        android:id="@+id/button_up"
+        android:layout_width="286dp"
+        android:layout_height="144dp"
+        android:layout_gravity="top|center"
+        android:src="@drawable/btn_up"/>
+
+    <ImageView
+        android:id="@+id/button_down"
+        android:layout_width="286dp"
+        android:layout_height="144dp"
+        android:layout_gravity="bottom|center"
+        android:src="@drawable/btn_down"/>
+
+    <ImageView
+        android:id="@+id/button_return"
+        android:layout_width="143dp"
+        android:layout_height="143dp"
+        android:layout_gravity="right|top"
+        android:src="@drawable/btn_return"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="63dp"
+        android:layout_marginBottom="50dp">
+
+        <ImageView
+            android:id="@+id/button_mico"
+            android:layout_width="143dp"
+            android:layout_height="144dp"
+            android:src="@drawable/icon_mico"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#D4FFF9"
+            android:textSize="24sp"
+            android:text="你好"
+            android:layout_marginLeft="14dp"
+            android:layout_gravity="center_vertical"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>
