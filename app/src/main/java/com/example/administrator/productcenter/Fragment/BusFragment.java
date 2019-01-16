@@ -21,7 +21,7 @@ import butterknife.Unbinder;
 public class BusFragment extends Fragment {
     @BindView(R.id.viewpager_robot)
     HorizontalViewPager viewPager;
-    private BusPresenter busPresenter;
+    private BusPresenter presenter;
 
     private Unbinder unbinder;
 
@@ -47,18 +47,18 @@ public class BusFragment extends Fragment {
 
         unbinder = ButterKnife.bind(this,view);
 
-        busPresenter = new BusPresenter(getContext(), getActivity());
+        presenter = new BusPresenter(getContext(), getActivity());
 
-        busPresenter.initViewPager(viewPager);
+        presenter.initViewPager(viewPager);
 
     }
 
     public void slideLeft() {
-        busPresenter.slideLeft();
+        presenter.slideLeft();
     }
 
     public void slideRight() {
-        busPresenter.slideRight();
+        presenter.slideRight();
     }
 
     @Override

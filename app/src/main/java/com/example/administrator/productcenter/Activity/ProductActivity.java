@@ -14,27 +14,26 @@ import com.example.administrator.productcenter.View.VerticalViewPager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ProductActivity extends FragmentActivity{
     //上下滑动切换产品，左右滑动切换型号
 
     @BindView(R.id.button_left)
-    ImageView buttonLeft;
+    ImageView btnLeft;
     @BindView(R.id.button_right)
-    ImageView buttonRight;
+    ImageView btnRight;
     @BindView(R.id.button_up)
-    ImageView buttonUp;
+    ImageView btnUp;
     @BindView(R.id.button_down)
-    ImageView buttonDown;
+    ImageView btnDown;
     @BindView(R.id.button_return)
-    ImageView buttonReturn;
+    ImageView btnReturn;
     @BindView(R.id.viewpager)
     VerticalViewPager viewPager;
     @BindView(R.id.text_clock)
     TextClock textClock;
 
-    private ProductPresenter productPresenter;
+    private ProductPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,40 +53,40 @@ public class ProductActivity extends FragmentActivity{
     private void init(){
         ButterKnife.bind(this);
 
-        productPresenter = new ProductPresenter(this,this);
+        presenter = new ProductPresenter(this,this);
 
-        productPresenter.setTextClock(textClock);
+        presenter.setTextClock(textClock);
 
-        productPresenter.initViewPager(viewPager);
+        presenter.initViewPager(viewPager);
 
-        buttonUp.setOnClickListener(new View.OnClickListener() {
+        btnUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productPresenter.slideUp();
+                presenter.slideUp();
             }
         });
-        buttonDown.setOnClickListener(new View.OnClickListener() {
+        btnDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productPresenter.slideDown();
+                presenter.slideDown();
             }
         });
-        buttonLeft.setOnClickListener(new View.OnClickListener() {
+        btnLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productPresenter.slideRight();
+                presenter.slideRight();
             }
         });
-        buttonRight.setOnClickListener(new View.OnClickListener() {
+        btnRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productPresenter.slideLeft();
+                presenter.slideLeft();
             }
         });
-        buttonReturn.setOnClickListener(new View.OnClickListener() {
+        btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productPresenter.doReturn();
+                presenter.doReturn();
             }
         });
 
@@ -95,7 +94,7 @@ public class ProductActivity extends FragmentActivity{
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        productPresenter.doTouch(event);
+        presenter.doTouch(event);
         return super.onTouchEvent(event);
     }
 

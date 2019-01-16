@@ -14,7 +14,6 @@ import com.example.administrator.productcenter.View.RobotImageView;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
 
 public class BusPresenter {
     private Context context;

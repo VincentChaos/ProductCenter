@@ -20,7 +20,7 @@ import butterknife.Unbinder;
 public class DrFragment extends Fragment {
     @BindView(R.id.viewpager_robot)
     HorizontalViewPager viewPager;
-    private DrPresenter drPresenter;
+    private DrPresenter presenter;
 
     private Unbinder unbinder;
 
@@ -45,18 +45,18 @@ public class DrFragment extends Fragment {
 
         unbinder = ButterKnife.bind(this,view);
 
-        drPresenter = new DrPresenter(getContext(),getActivity());
+        presenter = new DrPresenter(getContext(),getActivity());
 
-        drPresenter.initViewPager(viewPager);
+        presenter.initViewPager(viewPager);
 
     }
 
     public void slideLeft() {
-        drPresenter.slideLeft();
+        presenter.slideLeft();
     }
 
     public void slideRight() {
-        drPresenter.slideRight();
+        presenter.slideRight();
     }
 
     @Override

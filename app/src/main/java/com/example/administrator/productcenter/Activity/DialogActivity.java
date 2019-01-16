@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -40,10 +39,10 @@ public class DialogActivity extends AppCompatActivity {
     private void init(){
         ButterKnife.bind(this);
 
-        Intent intent = getIntent();
-        res = intent.getIntExtra("res",0);
-        width = intent.getIntExtra("width",0);
-        height = intent.getIntExtra("height",0);
+        Intent i = getIntent();
+        res = i.getIntExtra("res",0);
+        width = i.getIntExtra("width",0);
+        height = i.getIntExtra("height",0);
         iv.setImageResource(res);
 
         ViewGroup.LayoutParams para;
@@ -57,7 +56,8 @@ public class DialogActivity extends AppCompatActivity {
         Window dialogWindow = getWindow();
         WindowManager.LayoutParams lp = dialogWindow.getAttributes();
         DisplayMetrics d = getResources().getDisplayMetrics();     //获取屏幕宽高
-        Log.e(d.widthPixels+"",d.heightPixels+"");
+
+        //设置dialog位置大小
         lp.x = 2;
         lp.y = 20;
         lp.width = (int) (d.widthPixels*0.719);
