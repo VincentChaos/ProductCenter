@@ -37,7 +37,7 @@ public class HorizontalViewPager extends ViewPager {
                 float distanceX = ev.getX() - downXDispatch;//表示触摸到哪里，但是 你滑动具体是多少是得转换的
                 float distanceY = ev.getY() - downYDispatch;
                 if (!hasMove && Math.abs(distanceX) <= FLIP_DISTANCE && Math.abs(distanceY) <= FLIP_DISTANCE) {
-                    //点击事件
+                    //竖直水平方向不超50判定为点击事件
                     return false;
 
                 } else {

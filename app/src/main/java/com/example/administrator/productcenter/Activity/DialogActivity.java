@@ -39,6 +39,7 @@ public class DialogActivity extends AppCompatActivity {
     private void init(){
         ButterKnife.bind(this);
 
+        //获取传入的intent
         Intent i = getIntent();
         res = i.getIntExtra("res",0);
         width = i.getIntExtra("width",0);

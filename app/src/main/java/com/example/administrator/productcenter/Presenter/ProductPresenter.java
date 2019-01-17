@@ -3,6 +3,7 @@ package com.example.administrator.productcenter.Presenter;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextClock;
 
@@ -71,33 +72,35 @@ public class ProductPresenter {
         //设置预加载页面
         viewPager.setOffscreenPageLimit(3);
         viewPager.setCurrentItem(1);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            //页面变换监听器
-            @Override
-            public void onPageScrolled(int i, float v, int i1) {
+        viewPager.addOnPageChangeListener(new PageChangeListener());
 
+    }
+
+    private class PageChangeListener implements ViewPager.OnPageChangeListener {
+        //页面变换监听器
+        @Override
+        public void onPageScrolled(int i, float v, int i1) {
+
+        }
+
+        @Override
+        public void onPageSelected(int i) {
+            //当滑动至替换页面时，修改当前页面
+            if(i == 0){
+                currentPosition = fragmentList.size()-2;
+            }else if(i == fragmentList.size()-1){
+                currentPosition = 1;
+            }else {
+                currentPosition = i;
             }
+        }
 
-            @Override
-            public void onPageSelected(int i) {
-                //当滑动至替换页面时，修改当前页面
-                if(i == 0){
-                    currentPosition = fragmentList.size()-2;
-                }else if(i == fragmentList.size()-1){
-                    currentPosition = 1;
-                }else {
-                    currentPosition = i;
-                }
+        @Override
+        public void onPageScrollStateChanged(int i) {
+            if (i == ViewPager.SCROLL_STATE_IDLE) {
+                viewPager.setCurrentItem(currentPosition, false);
             }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-                if(i == ViewPager.SCROLL_STATE_IDLE){
-                    viewPager.setCurrentItem(currentPosition,false);
-                }
-            }
-        });
-
+        }
     }
 
     public void slideUp(){
@@ -151,28 +154,32 @@ public class ProductPresenter {
 
     public void doTouch(MotionEvent event){
         //执行触摸事件
-        if(event.getAction() == MotionEvent.ACTION_DOWN) {
-            //当手指按下的时候
-            x1 = event.getX();
-            y1 = event.getY();
-        }
-        if(event.getAction() == MotionEvent.ACTION_UP) {
-            //当手指离开的时候
-            x2 = event.getX();
-            y2 = event.getY();
-            if(Math.abs(x1 - x2) > Math.abs(y1 - y2)){
-                if(x1 - x2 > FLIP_DISTANCE) {
-                    slideRight();
-                } else if(x2 - x1 > FLIP_DISTANCE) {
-                    slideLeft();
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                x1 = event.getX();
+                y1 = event.getY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+
+                break;
+            case MotionEvent.ACTION_UP:
+                //当手指离开的时候
+                x2 = event.getX();
+                y2 = event.getY();
+                if(Math.abs(x1 - x2) > Math.abs(y1 - y2)){
+                    if(x1 - x2 > FLIP_DISTANCE) {
+                        slideRight();
+                    } else if(x2 - x1 > FLIP_DISTANCE) {
+                        slideLeft();
+                    }
+                }else {
+                    if (y1 - y2 > FLIP_DISTANCE) {
+                        slideUp();
+                    } else if (y2 - y1 > FLIP_DISTANCE) {
+                        slideDown();
+                    }
                 }
-            }else {
-                if (y1 - y2 > FLIP_DISTANCE) {
-                    slideUp();
-                } else if (y2 - y1 > FLIP_DISTANCE) {
-                    slideDown();
-                }
-            }
+                break;
         }
     }
 }

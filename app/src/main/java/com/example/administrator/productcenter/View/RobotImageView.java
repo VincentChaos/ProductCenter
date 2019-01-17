@@ -41,11 +41,11 @@ public class RobotImageView extends AppCompatImageView{
     }
 
     public void doClick() {
-            DialogActivity dialogActivity = new DialogActivity();
-            Intent intent = new Intent(activity,dialogActivity.getClass());
-            intent.putExtra("res",res);
-            intent.putExtra("width", width);
-            intent.putExtra("height", height);
-            activity.startActivity(intent);
+        DialogActivity dialogActivity = new DialogActivity();
+        Intent intent = new Intent(activity,dialogActivity.getClass());
+        intent.putExtra("res",res);
+        intent.putExtra("width", width);
+        intent.putExtra("height", height);
+        activity.startActivity(intent);
     }
 }

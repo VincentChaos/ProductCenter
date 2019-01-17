@@ -2,7 +2,6 @@ package com.example.administrator.productcenter.Utils;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
-import android.view.animation.Interpolator;
 import android.widget.Scroller;
 
 import java.lang.reflect.Field;
@@ -21,16 +20,6 @@ public class ViewPagerScroller extends Scroller {
 
     public ViewPagerScroller(Context context) {
         super(context);
-    }
-
-    public ViewPagerScroller(Context context, Interpolator interpolator) {
-        super(context, interpolator);
-    }
-
-
-    public ViewPagerScroller(Context context, Interpolator interpolator,
-                             boolean flywheel) {
-        super(context, interpolator, flywheel);
     }
 
     @Override
